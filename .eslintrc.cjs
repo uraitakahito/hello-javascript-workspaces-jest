@@ -47,6 +47,38 @@ module.exports = {
         'no-magic-numbers': 'off',
       },
     },
+    {
+      /*
+       * IMPORTANT: `all configuration` is not recommended for production use
+       * because it changes with every minor and major version of ESLint. Use it at your own risk.
+       * https://eslint.org/docs/v8.x/use/configure/configuration-files#using-eslintall
+       */
+      extends: ['plugin:jest/all'],
+      files: ['packages/**/test/**', 'packages/**/__tests__/*.test.js'],
+      // You can omit the eslint-plugin- prefix
+      plugins: ['jest'],
+      rules: {
+        //
+        // It is better to avoid using hooks as much as possible
+        // https://zenn.dev/bun913/articles/0aeef3e7347793
+        // https://eslint.org/docs/v8.x/rules/no-hooks
+        //
+        'jest/no-hooks': 'warn',
+
+        // https://github.com/jest-community/eslint-plugin-jest/blob/v28.10.0/docs/rules/prefer-expect-assertions.md
+        'jest/prefer-expect-assertions': 'off',
+        // https://github.com/jest-community/eslint-plugin-jest/blob/v28.9.0/docs/rules/prefer-importing-jest-globals.md
+        'jest/prefer-importing-jest-globals': 'off',
+        // https://github.com/jest-community/eslint-plugin-jest/blob/v28.9.0/docs/rules/require-hook.md
+        'jest/require-hook': 'off',
+      },
+    },
+    {
+      files: ['jest.config.mjs'],
+      rules: {
+        'max-len': 'off',
+      },
+    },
   ],
 
   parserOptions: {
@@ -72,7 +104,13 @@ module.exports = {
     'import/extensions': ['error', 'always', { ignorePackages: true }],
 
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['test-jest/*.js', 'rollup.*.js'], peerDependencies: false }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['packages/**/test/*.js', 'packages/**/__tests__/*.test.js', 'rollup.*.js'],
+        peerDependencies: false,
+      },
+    ],
     // https://eslint.org/docs/v8.x/rules/line-comment-position
     'line-comment-position': 'off',
     // https://eslint.org/docs/v8.x/rules/multiline-comment-style
