@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run selected file",
+      "skipFiles": ["<node_internals>/**"],
+      // program - an absolute path to the Node.js program to debug.
+      // ${file} - the currently open file.
+      "program": "${file}"
+    },
+    {
+      "name": "Debug current Jest Test",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "--experimental-vm-modules",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand",
+        "${relativeFile}"
+      ],
+      "console": "integratedTerminal",
+      // the visibility of the Debug Console panel during a debugging session.
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Debug ALL Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "--experimental-vm-modules",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand"
+      ],
+      "console": "integratedTerminal",
+      // the visibility of the Debug Console panel during a debugging session.
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
