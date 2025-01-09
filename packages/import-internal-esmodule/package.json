@@ -1,0 +1,19 @@
+{
+  "name": "import-internal-esmodule",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "description": "",
+  "dependencies": {
+    "named-exports-no-default": "^1.0.0",
+    "named-exports-with-default": "^1.0.0"
+  }
+}

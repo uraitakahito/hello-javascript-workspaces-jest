@@ -9,6 +9,9 @@
   "author": "",
   "license": "Apache-2.0",
   "description": "",
+  "workspaces": [
+    "packages/**"
+  ],
   "devDependencies": {
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",

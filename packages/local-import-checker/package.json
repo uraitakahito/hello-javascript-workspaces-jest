@@ -1,0 +1,16 @@
+{
+  "name": "local-import-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "description": "",
+  "dependencies": {
+    "@uraitakahito/hello-commonjs": "^1.0.8",
+    "@uraitakahito/hello-esmodule": "^1.0.2"
+  }
+}
